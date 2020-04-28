@@ -341,7 +341,7 @@ void Vector<T>:: Enlarge(){
   Log("Trying Enlarge again");
  }
  for(unsigned long i=0;i<size_;i++){
-  temp[i]= array_[i];
+  temp[i]= std::move(array_[i]);
  }
  delete []array_;
  array_=temp;
@@ -373,7 +373,7 @@ void Vector<T>:: Shorten(){
   Log("Trying Shorten again");
  }
  for(unsigned long i=0;i<size_;i++){
-  temp[i]=array_[i];
+  temp[i]=std::move(array_[i]);
  }
  delete[]array_;
  array_=temp;
