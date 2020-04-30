@@ -286,6 +286,9 @@ BST<T>::BST(BST<T>&&other):size_(other.size_){
 }
 template<class T>
 BST<T>& BST<T>::operator =(const BST<T>&other){
+ if(this==&other){
+  return (*this);
+ }
  size_=other.size_;
  if(size_==0){
   root_=nullptr;
@@ -300,6 +303,9 @@ BST<T>& BST<T>::operator =(const BST<T>&other){
 
 template <class T>
 BST<T>& BST<T>::operator=(BST<T>&&other){
+ if(this==&other){
+  return (*this);
+ }
  Clear();
  size_=other.size_;
  root_=other.root_;
@@ -431,59 +437,20 @@ int main(){
   t3.InsertItem(3);
   t3.InsertItem(2);
  t3.InsertItem(6);
- t3.InsertItem(7);
-  t3.InsertItem(8);
-  t3.InsertItem(7);
-  t3.InsertItem(10);
-  t3.InsertItem(7);
-  t3.InsertItem(9);
-  t3.InsertItem(11);
-
-
- t3.DeleteItem(5);
- t3.DeleteItem(7);
- t3.DeleteItem(6);
- t3.DeleteItem(1);
- t3.DeleteItem(3);
- t3.DeleteItem(2);
+ BST<int> t2;
+ t2.InsertItem(4);
+ t2.InsertItem(5);
+ t2.InsertItem(6);
+ t2.InsertItem(7);
+ t2.InsertItem(9);
+ t2.InsertItem(10);
+ t2.InsertItem(7);
+ t2.InsertItem(11);
+ t2.InsertItem(13);
+ t2.Print();
+ std::cout<<std::endl;
  t3.Print();
-  std::cout<<std::endl;
- t3.Clear();
- t3.InsertItemRecursive(2);
-  t3.InsertItemRecursive(3);
-  t3.InsertItemRecursive(4);
-  t3.InsertItemRecursive(5);
-  t3.InsertItemRecursive(3);
-  t3.InsertItemRecursive(2);
- t3.InsertItemRecursive(6);
- t3.InsertItemRecursive(7);
-  t3.InsertItemRecursive(8);
-  t3.InsertItemRecursive(7);
-  t3.InsertItemRecursive(10);
-  t3.InsertItemRecursive(7);
-  t3.InsertItemRecursive(9);
-  t3.InsertItemRecursive(11);
+ std::cout<<std::endl;
+ t3=t2;
  t3.Print();
-   std::cout<<std::endl;
- t3.DeleteItemRecursive(5);
- t3.Print();
-   std::cout<<std::endl;
- t3.DeleteItemRecursive(7);
- t3.Print();
-   std::cout<<std::endl;
- t3.DeleteItemRecursive(6);
- t3.Print();
-   std::cout<<std::endl;
- t3.DeleteItemRecursive(1);
- t3.Print();
-   std::cout<<std::endl;
- t3.DeleteItemRecursive(3);
- t3.Print();
-   std::cout<<std::endl;
- t3.DeleteItemRecursive(2);
- t3.Print();
-   std::cout<<std::endl;
- t3.Print();
-std::cout<< std::endl;
- std::cout<<t3.GetSize()<<std::endl;
 }
