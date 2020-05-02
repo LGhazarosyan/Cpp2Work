@@ -207,7 +207,7 @@ void Vector<T>:: PopBack(){
  if(IsEmpty()){
   throw std::underflow_error("Vector is empty");
  }
- --size_;
+ array_[--size_].~T();
  if(size_*4>capacity_){
   return;
  }
@@ -400,3 +400,4 @@ void Vector<T>::Allocate(){
 }
 int main(){
 }
+
