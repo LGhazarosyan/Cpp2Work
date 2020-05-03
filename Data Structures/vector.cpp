@@ -291,6 +291,7 @@ void Vector<T>:: EraseAt(unsigned long n){
  if(n>=size_){
   throw std::out_of_range("Invalid index");
  }
+ array_[n].~T();
  for(unsigned long i=n;i<size_-1;i++){
   array_[i]=std::move(array_[i+1]);
  }
